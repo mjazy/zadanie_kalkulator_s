@@ -24,6 +24,10 @@ public class SupportedCountriesTest {
 		assertTrue(supportedCountries.containsCountry("PL"));
 		assertTrue(supportedCountries.containsCountry("UK"));
 
+		assertTrue(supportedCountries.containsCountry("de"));
+		assertTrue(supportedCountries.containsCountry("Pl"));
+		assertTrue(supportedCountries.containsCountry("uK"));	
+
 		assertFalse(supportedCountries.containsCountry("FR"));
 		assertFalse(supportedCountries.containsCountry(null));
 	}

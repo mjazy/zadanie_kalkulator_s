@@ -56,7 +56,7 @@ public class SupportedCountries {
 	 */
 	public boolean containsCountry(String countryCode) {
 		for (Country country : supportedCountriesList) {
-			if (country.getCode().equals(countryCode)) {
+			if (country.getCode().equalsIgnoreCase(countryCode)) {
 				return true;
 			}
 		}
