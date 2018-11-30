@@ -33,6 +33,14 @@ public class SupportedCountriesTest {
 	}
 
 	@Test
+	public void getCountryCurrencyTest() {
+		assertEquals("EUR", supportedCountries.getCountryCurrency("DE"));
+		assertEquals("PLN", supportedCountries.getCountryCurrency("pl"));
+		assertEquals("", supportedCountries.getCountryCurrency("FR"));
+
+	}
+	
+	@Test
 	public void toStringTest() {
 		String relevantToStringValue = String.format("supportedCountries: '%s'",
 				supportedCountries.getSupportedCountriesList().toString());
