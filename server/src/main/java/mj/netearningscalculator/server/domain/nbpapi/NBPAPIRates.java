@@ -36,6 +36,12 @@ public class NBPAPIRates {
 		this.bid = bid;
 		this.ask = ask;
 	}
+	
+	/**
+	 * Constructor for NBPRates class.
+	 */
+	public NBPAPIRates() {		
+	}
 
 	public String getNo() {
 		return no;
