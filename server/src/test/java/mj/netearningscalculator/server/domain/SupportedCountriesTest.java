@@ -2,6 +2,8 @@ package mj.netearningscalculator.server.domain;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import javax.inject.Inject;
@@ -38,6 +40,14 @@ public class SupportedCountriesTest {
 		assertEquals("PLN", supportedCountries.getCountryCurrency("pl"));
 		assertEquals("", supportedCountries.getCountryCurrency("FR"));
 
+	}
+	
+	@Test
+	public void getCountryByCodeTest() {
+		assertNotNull(supportedCountries.getCountryByCode("DE"));
+		assertNotNull(supportedCountries.getCountryByCode("pl"));
+		assertNotNull(supportedCountries.getCountryByCode("uK"));
+		assertNull(supportedCountries.getCountryByCode("PLU"));
 	}
 	
 	@Test

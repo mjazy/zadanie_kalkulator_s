@@ -63,21 +63,38 @@ public class SupportedCountries {
 		return false;
 	}
 
-	
 	/**
 	 * Gets currency of country.
+	 * 
 	 * @param countryCode compliant with ISO 3166-1.
-	 * @return currency of country compliant with ISO 4127 or empty String in case country is not supported.
+	 * @return currency of country compliant with ISO 4127 or empty String in case
+	 *         country is not supported.
 	 */
 	public String getCountryCurrency(String countryCode) {
-		for (Country country: supportedCountriesList) {
+		for (Country country : supportedCountriesList) {
 			if (country.getCode().equalsIgnoreCase(countryCode)) {
 				return country.getFinances().getCurrency();
 			}
 		}
 		return "";
 	}
-	
+
+	/**
+	 * Gets supported country.
+	 * 
+	 * @param countryCode compliant with ISO 3166-1.
+	 * @return supported country or null in case there was none matching provided
+	 *         code.
+	 */
+	public Country getCountryByCode(String countryCode) {
+		for (Country country : supportedCountriesList) {
+			if (country.getCode().equalsIgnoreCase(countryCode)) {
+				return country;
+			}
+		}
+		return null;
+	}
+
 	@Override
 	public String toString() {
 		return String.format("supportedCountries: '%s'", supportedCountriesList.toString());
