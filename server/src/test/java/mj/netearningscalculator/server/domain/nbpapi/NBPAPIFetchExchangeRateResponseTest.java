@@ -16,17 +16,18 @@ public class NBPAPIFetchExchangeRateResponseTest {
 	@Before
 	public void initializeVariables() {
 
-		NBPAPIRates nbpPAPIRates = new NBPAPIRates("233/C/NBP/2018", new Date(10000000), new BigDecimal("4.25"),
+		NBPAPIRate nbpAPIRate = new NBPAPIRate("233/C/NBP/2018", new Date(10000000), new BigDecimal("4.25"),
 				new BigDecimal("4.27"));
+		NBPAPIRate[] nbpAPIRates = new NBPAPIRate[]{nbpAPIRate};
 
 		char table = 'a';
 		String currency = "Euro";
 		String code = "EUR";
 
 		nbpAPIFetchExchangeRateResponse = new NBPAPIFetchExchangeRateResponse(table, currency, code,
-				nbpPAPIRates);
+				nbpAPIRates);
 		relevantToStringValue = String.format("table: '%s', currency: '%s', code: '%s', %s", table, currency,
-				code, nbpPAPIRates);
+				code, nbpAPIRates);
 	}
 	
 	@Test

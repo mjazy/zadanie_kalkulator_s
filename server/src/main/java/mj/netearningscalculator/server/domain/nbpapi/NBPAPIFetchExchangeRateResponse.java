@@ -18,7 +18,7 @@ public class NBPAPIFetchExchangeRateResponse {
 	private String code;
 
 	@JsonProperty
-	private NBPAPIRates rates;
+	private NBPAPIRate[] rates;
 
 	/**
 	 * Constructor for NBPAPIFetchExchangeRateResponse class.
@@ -26,9 +26,9 @@ public class NBPAPIFetchExchangeRateResponse {
 	 * @param table    e.g. 'A'.
 	 * @param currency e.g. 'euro'.
 	 * @param code     compliant with ISO 4127 e.g. 'EUR'.
-	 * @param rates    {@link NBPAPIRates#NBPAPIRates(String, java.util.Date, java.math.BigDecimal, java.math.BigDecimal)}
+	 * @param rates    {@link NBPAPIRate#NBPAPIRates(String, java.util.Date, java.math.BigDecimal, java.math.BigDecimal)}
 	 */
-	public NBPAPIFetchExchangeRateResponse(char table, String currency, String code, NBPAPIRates rates) {
+	public NBPAPIFetchExchangeRateResponse(char table, String currency, String code, NBPAPIRate[] rates) {
 		this.table = table;
 		this.currency = currency;
 		this.code = code;
@@ -52,7 +52,7 @@ public class NBPAPIFetchExchangeRateResponse {
 		return code;
 	}
 
-	public NBPAPIRates getRates() {
+	public NBPAPIRate[] getRates() {
 		return rates;
 	}
 
