@@ -22,6 +22,12 @@ public class NBPAPIFetchExchangeRateResponse {
 
 	/**
 	 * Constructor for NBPAPIFetchExchangeRateResponse class.
+	 */
+	public NBPAPIFetchExchangeRateResponse() {
+	}
+
+	/**
+	 * Constructor for NBPAPIFetchExchangeRateResponse class.
 	 * 
 	 * @param table    e.g. 'A'.
 	 * @param currency e.g. 'euro'.
