@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import javax.inject.Inject;
 
+import org.slf4j.Logger;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -28,6 +29,9 @@ public class NBPAPIExchangeRateFetcher implements ExchangeRateFetcherInterface {
 	@Inject
 	RestTemplate restTemplate;
 
+	@Inject
+	Logger logger;
+
 	private HttpEntity<?> httpEntity;
 	private String fetchExchangeRateUrl;
 
@@ -50,8 +54,7 @@ public class NBPAPIExchangeRateFetcher implements ExchangeRateFetcherInterface {
 			responseEntity = restTemplate.exchange((String.format("%s%s%s", fetchExchangeRateUrl, currency, "/")),
 					HttpMethod.GET, httpEntity, NBPAPIFetchExchangeRateResponse.class);
 		} catch (Exception exception) {
-			// TODO : add logger functionality.
-			exception.printStackTrace();
+			logger.error(exception.getMessage());
 			return new BigDecimal(-1);
 		}
 
@@ -64,7 +67,8 @@ public class NBPAPIExchangeRateFetcher implements ExchangeRateFetcherInterface {
 		}
 
 		// In case responseEntity's status code was not 'OK' or exchangeRate was null.
-		//TODO: responseEntity's status code and body should be logged.
+		logger.error(String.format("Error with responseEntity, HTTP status: '%s', body: '%s'",
+				responseEntity.getStatusCode(), responseEntity.getBody()));
 		return new BigDecimal("-1");
 	}
 
