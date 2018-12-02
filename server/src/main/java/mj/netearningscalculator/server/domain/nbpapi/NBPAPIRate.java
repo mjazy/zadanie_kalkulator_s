@@ -6,12 +6,12 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Data model for rates returned as part of response from NBP API.
+ * Data model for rate returned as part of response from NBP API.
  * 
  * @author MJazy
  *
  */
-public class NBPAPIRates {
+public class NBPAPIRate {
 
 	@JsonProperty
 	private String no;
@@ -23,14 +23,14 @@ public class NBPAPIRates {
 	private BigDecimal ask;
 
 	/**
-	 * Constructor for NBPRates class.
+	 * Constructor for NBPRate class.
 	 * 
 	 * @param no            e.g. '233/C/NBP/2018'.
 	 * @param effectiveDate e.g. '2018-11-30'.
 	 * @param bid           e.g. '3.7298'.
 	 * @param ask           e.g. '3.8052'.
 	 */
-	public NBPAPIRates(String no, Date effectiveDate, BigDecimal bid, BigDecimal ask) {
+	public NBPAPIRate(String no, Date effectiveDate, BigDecimal bid, BigDecimal ask) {
 		this.no = no;
 		this.effectiveDate = effectiveDate;
 		this.bid = bid;
@@ -38,9 +38,9 @@ public class NBPAPIRates {
 	}
 	
 	/**
-	 * Constructor for NBPRates class.
+	 * Constructor for NBPAPIRate class.
 	 */
-	public NBPAPIRates() {		
+	public NBPAPIRate() {		
 	}
 
 	public String getNo() {

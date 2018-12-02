@@ -8,9 +8,9 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
-public class NBPAPIRatesTest {
+public class NBPAPIRateTest {
 
-	NBPAPIRates nbpRates;
+	NBPAPIRate nbpAPIRate;
 	String relevantToStringValue;
 
 	@Before
@@ -20,14 +20,14 @@ public class NBPAPIRatesTest {
 		BigDecimal testBid = new BigDecimal("4.25");
 		BigDecimal testAsk = new BigDecimal("4.27");
 
-		nbpRates = new NBPAPIRates(testNo, testDate, testBid, testAsk);
+		nbpAPIRate = new NBPAPIRate(testNo, testDate, testBid, testAsk);
 		relevantToStringValue = String.format("no: '%s', effectiveDate: '%s', bid: '%s', ask: '%s'", testNo,
 				testDate, testBid, testAsk);
 	}
 
 	@Test
 	public void toStringTest() {
-		assertEquals(nbpRates.toString(), relevantToStringValue);
+		assertEquals(nbpAPIRate.toString(), relevantToStringValue);
 	}
 
 }
