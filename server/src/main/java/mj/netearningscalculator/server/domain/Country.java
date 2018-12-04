@@ -16,6 +16,12 @@ public class Country {
 
 	/**
 	 * Country class constructor.
+	 */
+	public Country() {
+	}
+
+	/**
+	 * Country class constructor.
 	 * 
 	 * @param name     e.g. 'Poland'.
 	 * @param code     compliant with ISO 3166-1 e.g. 'PL'.
