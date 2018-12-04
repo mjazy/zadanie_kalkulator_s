@@ -40,31 +40,17 @@ public class ApplicationControllerTest {
 	@LocalServerPort
 	int port;
 
-	String getMonthlyNetEarningsInvalidInputUrl, getMonthlyNetEarningsValidInputUrl, getSupportedCountriesUrl;
+	String validCountryCode, invalidCountryCode, getMonthlyNetEarningsInvalidInputUrl,
+			getMonthlyNetEarningsValidInputUrl, getSupportedCountriesUrl;
 	BigDecimal validGrossDailyEarnings;
 	ResponseEntity<String> netEarningsServiceOkResponseEntity, netEarningsServiceBadRequestResponseEntity;
 	ResponseEntity<ArrayList<Country>> getSupportedCountriesResponseEntity;
 
 	@Before
 	public void initializeVariables() {
-
-		String validCountryCode = "PL";
-		String invalidCountryCode = "PLLL";
 		validGrossDailyEarnings = new BigDecimal("100");
-
-		netEarningsServiceOkResponseEntity = netEarningsService.runService(validCountryCode, validGrossDailyEarnings);
-		netEarningsServiceBadRequestResponseEntity = netEarningsService.runService(invalidCountryCode,
-				validGrossDailyEarnings);
-
-		getMonthlyNetEarningsInvalidInputUrl = String.format("http://localhost:%s/earnings/%s/%s", port,
-				invalidCountryCode, validGrossDailyEarnings);
-		getMonthlyNetEarningsValidInputUrl = String.format("http://localhost:%s/earnings/%s/%s", port, validCountryCode,
-				validGrossDailyEarnings);
-		getSupportedCountriesUrl = String.format("http://localhost:%s/countries", port);
-		getSupportedCountriesResponseEntity = testRestTemplate.exchange(getSupportedCountriesUrl, HttpMethod.GET,
-				null, new ParameterizedTypeReference<ArrayList<Country>>() {
-				});
-
+		initializeStrings();
+		initializeResponseEntities();
 	}
 
 	@Test
@@ -84,6 +70,26 @@ public class ApplicationControllerTest {
 		assertEquals(getSupportedCountriesResponseEntity.getStatusCode(), HttpStatus.OK);
 		assertEquals(getSupportedCountriesResponseEntity.getBody().toString(),
 				supportedCountries.getSupportedCountriesList().toString());
+	}
+
+	private void initializeStrings() {
+		validCountryCode = "PL";
+		invalidCountryCode = "PLLL";
+		getMonthlyNetEarningsInvalidInputUrl = String.format("http://localhost:%s/earnings/%s/%s", port,
+				invalidCountryCode, validGrossDailyEarnings);
+		getMonthlyNetEarningsValidInputUrl = String.format("http://localhost:%s/earnings/%s/%s", port, validCountryCode,
+				validGrossDailyEarnings);
+		getSupportedCountriesUrl = String.format("http://localhost:%s/countries", port);
+
+	}
+
+	private void initializeResponseEntities() {
+		netEarningsServiceOkResponseEntity = netEarningsService.runService(validCountryCode, validGrossDailyEarnings);
+		netEarningsServiceBadRequestResponseEntity = netEarningsService.runService(invalidCountryCode,
+				validGrossDailyEarnings);
+		getSupportedCountriesResponseEntity = testRestTemplate.exchange(getSupportedCountriesUrl, HttpMethod.GET, null,
+				new ParameterizedTypeReference<ArrayList<Country>>() {
+				});
 	}
 
 }
