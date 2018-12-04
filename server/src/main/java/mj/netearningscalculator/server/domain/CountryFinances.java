@@ -16,6 +16,12 @@ public class CountryFinances {
 
 	/**
 	 * CountryFinances class constructor.
+	 */
+	public CountryFinances() {
+	}
+	
+	/**
+	 * CountryFinances class constructor.
 	 * 
 	 * @param currency   compliant with ISO 4127 e.g. 'PLN'.
 	 * @param incomeTax  with value range between 0 and 1 where 0 stands for 0% and
