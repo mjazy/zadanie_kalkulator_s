@@ -1,13 +1,18 @@
 package mj.netearningscalculator.server.rest;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.inject.Inject;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import mj.netearningscalculator.server.domain.Country;
+import mj.netearningscalculator.server.domain.SupportedCountries;
 import mj.netearningscalculator.server.service.NetEarningsService;
 
 /**
@@ -21,6 +26,9 @@ public class ApplicationController {
 
 	@Inject
 	NetEarningsService netEarningsService;
+	
+	@Inject
+	SupportedCountries supportedCountries;
 
 	/**
 	 * GET endpoint for calculating monthly net earnings in PLN.
@@ -32,5 +40,10 @@ public class ApplicationController {
 	ResponseEntity<String> getMonthlyNetEarnings(@PathVariable String countryCode,
 			@PathVariable BigDecimal grossDailyEarnings) {
 		return netEarningsService.runService(countryCode, grossDailyEarnings);
+	}
+	
+	@GetMapping("/countries")
+	ResponseEntity<List<Country>> getSupportedCountries(){
+		return ResponseEntity.status(HttpStatus.OK).body(supportedCountries.getSupportedCountriesList());
 	}
 }
