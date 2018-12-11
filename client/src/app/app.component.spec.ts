@@ -1,3 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
+import { InputFormComponent } from './components/input-form/input-form.component';
+import { FormsModule } from '@angular/forms';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
@@ -5,8 +8,13 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        InputFormComponent
       ],
+      imports: [
+        FormsModule,
+        HttpClientModule
+      ]
     }).compileComponents();
   }));
 
