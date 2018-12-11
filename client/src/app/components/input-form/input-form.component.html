@@ -1,11 +1,12 @@
 <form>
   <div style="text-align: center">
+  <h1 name="invalidInputHeader">{{invalidInputMessage}}</h1>
   <p>Select your country below:</p>
   <select [(ngModel)] = "countryCode" name = "code">
     <option (click)="setCurrency()" *ngFor = "let supportedCountry of supportedCountries" [value] = "supportedCountry.code">{{supportedCountry.name}}</option>
   </select>
   <p>Enter your daily gross earnings below:</p>
   <input [(ngModel)] = "grossDailyEarnings" name = "earnings" type="text"/><button disabled>{{countryCurrency}}</button><br>
-  <button>Calculate net monthly earnings</button>
+  <button (click)="getNetMonthlyEarnings()">Calculate net monthly earnings</button>
 </div>
 </form>
