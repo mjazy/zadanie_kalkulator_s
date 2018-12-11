@@ -11,6 +11,11 @@
 	<name>NetEarningsCalculator</name>
 	<description>Project allowing calculator of net earnings for particular countries.</description>
 
+	<modules>
+		<module>server</module>
+		<module>client</module>
+	</modules>
+	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
