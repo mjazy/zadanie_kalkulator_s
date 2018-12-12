@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -11,7 +12,8 @@ describe('InputFormComponent', () => {
     TestBed.configureTestingModule({
       declarations: [InputFormComponent],
       imports: [
-        FormsModule
+        FormsModule,
+        HttpClientTestingModule
       ]
     })
       .compileComponents();

@@ -2,17 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+
 /**
  * Service for fetching supported countries from server.
  * @author MJazy
  */
+@Injectable({
+  providedIn: 'root'
+})
 export class SupportedCountriesFetcherService {
 
   private supportedCountriesObservable: Observable<Country[]>;
-
 
   /**
    * Method getting supported countries.
@@ -24,7 +24,7 @@ export class SupportedCountriesFetcherService {
 
   constructor(private httpClient: HttpClient) {
     this.supportedCountriesObservable = this.httpClient.get<Country[]>('http://localhost:8080/countries');
-   }
+  }
 }
 
 /**

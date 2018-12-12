@@ -1,8 +1,7 @@
 import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { NetMonthlyEarningsFetcherService } from './net-monthly-earnings-fetcher.service';
-import { Observable } from 'rxjs';
 
 describe('NetMonthlyEarningsFetcherService', () => {
   let httpMock: HttpTestingController;
@@ -28,7 +27,7 @@ describe('NetMonthlyEarningsFetcherService', () => {
     request.flush(valueToBeReturnedFromMock);
 
     service.getNetMonthlyEarnings()
-    .subscribe((data => expect(data === valueToBeReturnedFromMock).toBeTruthy()));
+      .subscribe((data => expect(data === valueToBeReturnedFromMock).toBeTruthy()));
   });
 
 

@@ -9,10 +9,10 @@ describe('OutputDivComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OutputDivComponent ],
+      declarations: [OutputDivComponent],
       imports: [HttpClientTestingModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

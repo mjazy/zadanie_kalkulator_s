@@ -1,7 +1,7 @@
 import { Country } from './supported-countries-fetcher.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 /**
  * Service allowing fetching net monthly earnings.
@@ -21,7 +21,7 @@ export class NetMonthlyEarningsFetcherService {
    */
   public fetchNetMonthlyEarnings(countryCode: string, grossDailyEarnings: number) {
     this.httpClient.get<number>('http://localhost:8080/earnings/' + countryCode + '/' + grossDailyEarnings)
-    .subscribe(data => (this.netMonthlyEarnings.next(data)));
+      .subscribe(data => (this.netMonthlyEarnings.next(data)));
   }
 
   /**

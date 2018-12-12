@@ -2,7 +2,6 @@ import { NetMonthlyEarningsFetcherService } from './../../services/net-monthly-e
 import { UserInputValidatorService } from './../../services/user-input-validator.service';
 import { Country, SupportedCountriesFetcherService } from './../../services/supported-countries-fetcher.service';
 import { Component, OnInit } from '@angular/core';
-import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-input-form',
@@ -40,7 +39,7 @@ export class InputFormComponent implements OnInit {
 
   ngOnInit() {
     this.supportedCountriesFetcherService.getSupportedCountries()
-    .subscribe(data => (this.supportedCountries = data), error => (console.log(error)));
+      .subscribe(data => (this.supportedCountries = data), error => (console.log(error)));
   }
 
   getSupportedCountries() {
