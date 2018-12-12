@@ -34,6 +34,7 @@ public class UserInputValidator {
 
 	private boolean validateGrossDailyEarnings(BigDecimal grossDailyEarnings) {
 		if (grossDailyEarnings != null) {
+			// if grossDailyEarnings > 0
 			if (grossDailyEarnings.compareTo(BigDecimal.ZERO) > 0) {
 				return true;
 			}
