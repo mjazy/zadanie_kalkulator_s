@@ -22,13 +22,13 @@ describe('NetMonthlyEarningsFetcherService', () => {
   });
 
   it('should return observable with relevant value', () => {
-    const valueToBeReturnedFromMock = 810.00;
     service.fetchNetMonthlyEarnings('PL', 100);
-    const result: Observable<number> = service.getNetMonthlyEarnings();
-    result.subscribe((data) => expect(data === valueToBeReturnedFromMock).toBeTruthy());
+    const valueToBeReturnedFromMock = 810.00;
     const request = httpMock.expectOne('http://localhost:8080/earnings/PL/100');
     request.flush(valueToBeReturnedFromMock);
 
+    service.getNetMonthlyEarnings()
+    .subscribe((data => expect(data === valueToBeReturnedFromMock).toBeTruthy()));
   });
 
 
