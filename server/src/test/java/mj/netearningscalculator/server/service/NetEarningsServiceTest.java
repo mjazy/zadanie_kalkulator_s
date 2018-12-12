@@ -5,6 +5,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import javax.inject.Inject;
 
@@ -89,7 +90,7 @@ public class NetEarningsServiceTest {
 		BigDecimal validNetMonthlyEarningsInPLN = calculator.calculateNetMonthlyEarningsInPLN(validGrossDailyEarnings,
 				new BigDecimal("1"), validCountryFinances);
 		successfulRequestResponseEntity = ResponseEntity.status(HttpStatus.OK)
-				.body(validNetMonthlyEarningsInPLN.toString());
+				.body(validNetMonthlyEarningsInPLN.setScale(2, RoundingMode.CEILING).toString());
 
 		externalServiceOutageResponseEntity = ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
 				.body("External service error.");

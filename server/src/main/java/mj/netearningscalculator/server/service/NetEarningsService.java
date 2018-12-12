@@ -1,6 +1,7 @@
 package mj.netearningscalculator.server.service;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import javax.inject.Named;
 
@@ -59,7 +60,7 @@ public class NetEarningsService {
 		} else {
 			BigDecimal netMonthlyEarningsInPLN = calculator.calculateNetMonthlyEarningsInPLN(grossDailyEarnings,
 					exchangeRate, country.getFinances());
-			return ResponseEntity.status(HttpStatus.OK).body(netMonthlyEarningsInPLN.toString());
+			return ResponseEntity.status(HttpStatus.OK).body(netMonthlyEarningsInPLN.setScale(2, RoundingMode.CEILING).toString());
 		}
 
 	}
