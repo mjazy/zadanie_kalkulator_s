@@ -2,7 +2,7 @@ package mj.netearningscalculator.server.service;
 
 import java.math.BigDecimal;
 
-import org.springframework.stereotype.Service;
+import javax.inject.Named;
 
 import mj.netearningscalculator.server.domain.CountryFinances;
 
@@ -12,7 +12,7 @@ import mj.netearningscalculator.server.domain.CountryFinances;
  * @author MJazy
  *
  */
-@Service("calculator")
+@Named("calculator")
 public class Calculator {
 
 	private static final int MONTH_LENGTH = 22;

@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+import javax.inject.Named;
 
 /**
  * Class maintaining currently supported countries. Currently supported
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * @author MJazy
  *
  */
-@Component("supportedCountries")
+@Named("supportedCountries")
 public class SupportedCountries {
 
 	private List<Country> supportedCountriesList;

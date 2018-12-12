@@ -3,6 +3,7 @@ package mj.netearningscalculator.server.service.nbpapi;
 import java.math.BigDecimal;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.slf4j.Logger;
 import org.springframework.http.HttpEntity;
@@ -11,7 +12,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import mj.netearningscalculator.server.domain.nbpapi.NBPAPIFetchExchangeRateResponse;
@@ -23,7 +23,7 @@ import mj.netearningscalculator.server.service.ExchangeRateFetcherInterface;
  * @author MJazy
  *
  */
-@Service("nbpAPIExchangeRateFetcher")
+@Named("nbpAPIExchangeRateFetcher")
 public class NBPAPIExchangeRateFetcher implements ExchangeRateFetcherInterface {
 
 	@Inject

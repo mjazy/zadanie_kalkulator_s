@@ -3,8 +3,7 @@ package mj.netearningscalculator.server.service;
 import java.math.BigDecimal;
 
 import javax.inject.Inject;
-
-import org.springframework.stereotype.Service;
+import javax.inject.Named;
 
 import mj.netearningscalculator.server.domain.SupportedCountries;
 
@@ -13,7 +12,7 @@ import mj.netearningscalculator.server.domain.SupportedCountries;
  * 
  * @author MJazy
  */
-@Service("userInputValidator")
+@Named("userInputValidator")
 public class UserInputValidator {
 
 	@Inject

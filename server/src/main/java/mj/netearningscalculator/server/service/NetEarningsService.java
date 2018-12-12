@@ -2,10 +2,10 @@ package mj.netearningscalculator.server.service;
 
 import java.math.BigDecimal;
 
+import javax.inject.Named;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
-
 import mj.netearningscalculator.server.domain.Country;
 import mj.netearningscalculator.server.domain.SupportedCountries;
 import mj.netearningscalculator.server.service.nbpapi.NBPAPIExchangeRateFetcher;
@@ -17,7 +17,7 @@ import mj.netearningscalculator.server.service.nbpapi.NBPAPIExchangeRateFetcher;
  * @author MJazy
  *
  */
-@Service("netEarningsService")
+@Named("netEarningsService")
 public class NetEarningsService {
 
 	UserInputValidator userInputValidator;
