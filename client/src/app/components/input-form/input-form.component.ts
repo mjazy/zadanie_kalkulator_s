@@ -39,7 +39,8 @@ export class InputFormComponent implements OnInit {
     private netMonthlyEarningsFetcherService: NetMonthlyEarningsFetcherService) { }
 
   ngOnInit() {
-    this.supportedCountriesFetcherService.fetchSupportedCountries().subscribe(data => (this.supportedCountries = data));
+    this.supportedCountriesFetcherService.getSupportedCountries()
+    .subscribe(data => (this.supportedCountries = data), error => (console.log(error)));
   }
 
   getSupportedCountries() {

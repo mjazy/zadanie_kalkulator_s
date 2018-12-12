@@ -11,18 +11,20 @@ import { Observable } from 'rxjs';
  */
 export class SupportedCountriesFetcherService {
 
-  private supportedCountries: Country[];
+  private supportedCountriesObservable: Observable<Country[]>;
 
 
   /**
-   * Method fetching supported countries from server.
+   * Method getting supported countries.
    * @author MJazy
    */
-  public fetchSupportedCountries(): Observable<Country[]> {
-     return this.httpClient.get<Country[]>('http://localhost:8080/countries');
+  public getSupportedCountries(): Observable<Country[]> {
+    return this.supportedCountriesObservable;
   }
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    this.supportedCountriesObservable = this.httpClient.get<Country[]>('http://localhost:8080/countries');
+   }
 }
 
 /**

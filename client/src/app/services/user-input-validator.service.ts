@@ -44,7 +44,6 @@ export class UserInputValidatorService {
   }
 
   constructor(supportedCountriesFetcherService: SupportedCountriesFetcherService) {
-    supportedCountriesFetcherService.fetchSupportedCountries()
-      .subscribe((data) => (this.supportedCountries = data), (error) => (console.log(error)));
+    supportedCountriesFetcherService.getSupportedCountries().subscribe(data => (this.supportedCountries = data));
   }
 }

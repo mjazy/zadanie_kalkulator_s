@@ -6,6 +6,7 @@ import { SupportedCountriesFetcherService, Country, CountryFinances } from './su
 describe('SupportedCountriesFetcherService', () => {
   let httpMock: HttpTestingController;
   let service: SupportedCountriesFetcherService;
+  let supportedCountryList: Country[];
     beforeEach(() => { TestBed.configureTestingModule({
     imports: [
       HttpClientTestingModule
@@ -16,22 +17,18 @@ describe('SupportedCountriesFetcherService', () => {
   });
   httpMock = TestBed.get(HttpTestingController);
   service = TestBed.get(SupportedCountriesFetcherService);
+  const countryFinances: CountryFinances = { currency: 'PLN', incomeTax: 0.19, fixedCosts: 1200, taxFreeAllowance: 3000 };
+  const country: Country = { name: 'Poland', code: 'PL', finances: countryFinances };
+  supportedCountryList = [country];
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should return list of supported countries', async() => {
-    const countryFinances: CountryFinances = { currency: 'PLN', incomeTax: 0.19, fixedCosts: 1200, taxFreeAllowance: 3000 };
-    const country: Country = { name: 'Poland', code: 'PL', finances: countryFinances };
+  it('should return list of supported countries', () => {
 
-    const supportedCountryList: Country[] = [country];
-
-    service.fetchSupportedCountries().subscribe(data =>
-      (expect(data === supportedCountryList).toBeTruthy()));
-    const request = httpMock.expectOne('http://localhost:8080/countries');
-    request.flush(supportedCountryList);
+    service.getSupportedCountries().subscribe(data => expect (data === supportedCountryList).toBeTruthy());
 
   });
 

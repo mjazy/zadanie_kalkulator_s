@@ -1,3 +1,4 @@
+import { SupportedCountriesFetcherService } from './services/supported-countries-fetcher.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -19,7 +20,7 @@ import { NetMonthlyEarningsFetcherService } from './services/net-monthly-earning
     HttpClientModule,
     FormsModule
   ],
-  providers: [NetMonthlyEarningsFetcherService],
+  providers: [NetMonthlyEarningsFetcherService, SupportedCountriesFetcherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
