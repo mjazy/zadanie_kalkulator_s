@@ -27,15 +27,15 @@ import mj.netearningscalculator.server.service.ExchangeRateFetcherInterface;
 public class NBPAPIExchangeRateFetcher implements ExchangeRateFetcherInterface {
 
 	@Inject
-	RestTemplate restTemplate;
+	private RestTemplate restTemplate;
 
 	@Inject
-	Logger logger;
+	private Logger logger;
 
 	private HttpEntity<?> httpEntity;
 	private String fetchExchangeRateUrl;
 
-	NBPAPIExchangeRateFetcher() {
+	public NBPAPIExchangeRateFetcher() {
 		httpEntity = prepareHttpEntity();
 		fetchExchangeRateUrl = "http://api.nbp.pl/api/exchangerates/rates/C/";
 	}

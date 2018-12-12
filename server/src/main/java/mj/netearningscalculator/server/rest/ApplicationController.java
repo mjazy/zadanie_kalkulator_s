@@ -28,10 +28,10 @@ import mj.netearningscalculator.server.service.NetEarningsService;
 public class ApplicationController {
 
 	@Inject
-	NetEarningsService netEarningsService;
+	private NetEarningsService netEarningsService;
 
 	@Inject
-	SupportedCountries supportedCountries;
+	private SupportedCountries supportedCountries;
 
 	/**
 	 * GET endpoint for calculating monthly net earnings in PLN.
@@ -42,13 +42,13 @@ public class ApplicationController {
 	 * @return monthly net earnings in PLN or relevant error communicate.
 	 */
 	@GetMapping("/earnings/{countryCode}/{grossDailyEarnings}")
-	ResponseEntity<String> getMonthlyNetEarnings(@PathVariable String countryCode,
+	public ResponseEntity<String> getMonthlyNetEarnings(@PathVariable String countryCode,
 			@PathVariable BigDecimal grossDailyEarnings) {
 		return netEarningsService.runService(countryCode, grossDailyEarnings);
 	}
 
 	@GetMapping("/countries")
-	ResponseEntity<List<Country>> getSupportedCountries() {
+	public ResponseEntity<List<Country>> getSupportedCountries() {
 		return ResponseEntity.status(HttpStatus.OK).body(supportedCountries.getSupportedCountriesList());
 	}
 }

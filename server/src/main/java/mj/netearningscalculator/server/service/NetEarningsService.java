@@ -20,10 +20,10 @@ import mj.netearningscalculator.server.service.nbpapi.NBPAPIExchangeRateFetcher;
 @Named("netEarningsService")
 public class NetEarningsService {
 
-	UserInputValidator userInputValidator;
-	NBPAPIExchangeRateFetcher nbpAPIExchangeRateFetcher;
-	Calculator calculator;
-	SupportedCountries supportedCountries;
+	private UserInputValidator userInputValidator;
+	private NBPAPIExchangeRateFetcher nbpAPIExchangeRateFetcher;
+	private Calculator calculator;
+	private SupportedCountries supportedCountries;
 
 	/**
 	 * Constructor for NetEarningsService class.

@@ -16,7 +16,7 @@ import mj.netearningscalculator.server.domain.SupportedCountries;
 public class UserInputValidator {
 
 	@Inject
-	SupportedCountries supportedCountries;
+	private SupportedCountries supportedCountries;
 
 	/**
 	 * Method validating user input.
