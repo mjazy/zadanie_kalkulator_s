@@ -20,7 +20,8 @@ public class CountryTest {
 		String currency = "PLN";
 		BigDecimal incomeTax = new BigDecimal("0.19");
 		BigDecimal fixedCosts = new BigDecimal("2000");
-		CountryFinances polandFinances = new CountryFinances(currency, incomeTax, fixedCosts);
+		BigDecimal taxFreeAllowance = new BigDecimal("3000");
+		CountryFinances polandFinances = new CountryFinances(currency, incomeTax, fixedCosts, taxFreeAllowance);
 
 		poland = new Country(name, code, polandFinances);
 

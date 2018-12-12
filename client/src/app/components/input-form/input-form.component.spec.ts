@@ -33,7 +33,7 @@ describe('InputFormComponent', () => {
   });
 
   it('should have array of supported countries after initialization', async() => {
-    const countryFinances: CountryFinances = { currency: 'PLN', incomeTax: 0.19, fixedCosts: 1200 };
+    const countryFinances: CountryFinances = { currency: 'PLN', incomeTax: 0.19, fixedCosts: 1200, taxFreeAllowance: 3000 };
     const country: Country = { name: 'Poland', code: 'PL', finances: countryFinances };
     const supportedCountryList: Country[] = [country];
 

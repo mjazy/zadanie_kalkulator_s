@@ -17,10 +17,11 @@ public class CountryFinancesTest {
 		String currency = "PLN";
 		BigDecimal incomeTax = new BigDecimal("0.19");
 		BigDecimal fixedCosts = new BigDecimal("2000");
-		polandFinances = new CountryFinances(currency, incomeTax, fixedCosts);
+		BigDecimal taxFreeAllowance = new BigDecimal("3000");
+		polandFinances = new CountryFinances(currency, incomeTax, fixedCosts, taxFreeAllowance);
 
-		relevantToStringValue = String.format("currency: '%s', incomeTax: '%s', fixedCosts: '%s'", currency, incomeTax,
-				fixedCosts);
+		relevantToStringValue = String.format("currency: '%s', incomeTax: '%s', fixedCosts: '%s', taxFreeAllowance: '%s'", currency, incomeTax,
+				fixedCosts, taxFreeAllowance);
 
 	}
 

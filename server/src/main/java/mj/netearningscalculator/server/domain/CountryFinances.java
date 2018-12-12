@@ -13,25 +13,29 @@ public class CountryFinances {
 	private String currency;
 	private BigDecimal incomeTax;
 	private BigDecimal fixedCosts;
+	private BigDecimal taxFreeAllowance;
 
 	/**
 	 * CountryFinances class constructor.
 	 */
 	public CountryFinances() {
 	}
-	
+
 	/**
 	 * CountryFinances class constructor.
 	 * 
-	 * @param currency   compliant with ISO 4127 e.g. 'PLN'.
-	 * @param incomeTax  with value range between 0 and 1 where 0 stands for 0% and
-	 *                   1 for 100% e.g. '0.19'.
-	 * @param fixedCosts to be deducted from gross earnings e.g. '2000'.
+	 * @param currency         compliant with ISO 4127 e.g. 'PLN'.
+	 * @param incomeTax        with value range between 0 and 1 where 0 stands for
+	 *                         0% and 1 for 100% e.g. '0.19'.
+	 * @param fixedCosts       to be deducted from gross earnings e.g. '2000'.
+	 * @param taxFreeAllowance above which taxation should be extracted from gross
+	 *                         earnings e.g. '3000'.
 	 */
-	public CountryFinances(String currency, BigDecimal incomeTax, BigDecimal fixedCosts) {
+	public CountryFinances(String currency, BigDecimal incomeTax, BigDecimal fixedCosts, BigDecimal taxFreeAllowance) {
 		this.currency = currency;
 		this.incomeTax = incomeTax;
 		this.fixedCosts = fixedCosts;
+		this.setTaxFreeAllowance(taxFreeAllowance);
 	}
 
 	/**
@@ -80,10 +84,18 @@ public class CountryFinances {
 		this.fixedCosts = fixedCosts;
 	}
 
+	public BigDecimal getTaxFreeAllowance() {
+		return taxFreeAllowance;
+	}
+
+	public void setTaxFreeAllowance(BigDecimal taxFreeAllowance) {
+		this.taxFreeAllowance = taxFreeAllowance;
+	}
+
 	@Override
 	public String toString() {
-		return String.format("currency: '%s', incomeTax: '%s', fixedCosts: '%s'", this.currency, this.incomeTax,
-				this.fixedCosts);
+		return String.format("currency: '%s', incomeTax: '%s', fixedCosts: '%s', taxFreeAllowance: '%s'", this.currency,
+				this.incomeTax, this.fixedCosts, this.taxFreeAllowance);
 	}
 
 }

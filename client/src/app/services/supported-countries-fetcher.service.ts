@@ -43,4 +43,5 @@ export interface CountryFinances {
   currency: string;
   incomeTax: number;
   fixedCosts: number;
+  taxFreeAllowance: number;
 }

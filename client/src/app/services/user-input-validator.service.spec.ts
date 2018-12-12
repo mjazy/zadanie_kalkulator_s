@@ -17,7 +17,7 @@ describe('UserInputValidatorService', () => {
   service = TestBed.get(UserInputValidatorService);
   httpMock = TestBed.get(HttpTestingController);
 
-  const countryFinances: CountryFinances = { currency: 'PLN', incomeTax: 0.19, fixedCosts: 1200 };
+  const countryFinances: CountryFinances = { currency: 'PLN', incomeTax: 0.19, fixedCosts: 1200, taxFreeAllowance: 3000 };
   const country: Country = { name: 'Poland', code: 'PL', finances: countryFinances };
   const supportedCountries: Country[] = [country];
 
