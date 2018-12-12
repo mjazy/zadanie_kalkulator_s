@@ -18,7 +18,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import mj.netearningscalculator.server.domain.CountryFinances;
 import mj.netearningscalculator.server.domain.SupportedCountries;
-import mj.netearningscalculator.server.service.nbpapi.NBPAPIExchangeRateFetcher;
+import mj.netearningscalculator.server.service.componentservices.Calculator;
+import mj.netearningscalculator.server.service.componentservices.UserInputValidator;
+import mj.netearningscalculator.server.service.componentservices.nbpapi.NBPAPIExchangeRateFetcher;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

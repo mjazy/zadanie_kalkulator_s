@@ -1,4 +1,4 @@
-package mj.netearningscalculator.server.service.nbpapi;
+package mj.netearningscalculator.server.service.componentservices.nbpapi;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertEquals;
@@ -15,6 +15,8 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.rule.OutputCapture;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import mj.netearningscalculator.server.service.componentservices.nbpapi.NBPAPIExchangeRateFetcher;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

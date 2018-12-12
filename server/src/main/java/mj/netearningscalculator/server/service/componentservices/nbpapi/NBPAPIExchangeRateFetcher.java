@@ -1,4 +1,4 @@
-package mj.netearningscalculator.server.service.nbpapi;
+package mj.netearningscalculator.server.service.componentservices.nbpapi;
 
 import java.math.BigDecimal;
 
@@ -15,7 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 import mj.netearningscalculator.server.domain.nbpapi.NBPAPIFetchExchangeRateResponse;
-import mj.netearningscalculator.server.service.ExchangeRateFetcherInterface;
+import mj.netearningscalculator.server.service.componentservices.ExchangeRateFetcherInterface;
 
 /**
  * Service fetching exchange rate from NBP API.

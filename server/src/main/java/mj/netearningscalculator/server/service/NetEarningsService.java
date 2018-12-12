@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import mj.netearningscalculator.server.domain.Country;
 import mj.netearningscalculator.server.domain.SupportedCountries;
-import mj.netearningscalculator.server.service.nbpapi.NBPAPIExchangeRateFetcher;
+import mj.netearningscalculator.server.service.componentservices.Calculator;
+import mj.netearningscalculator.server.service.componentservices.UserInputValidator;
+import mj.netearningscalculator.server.service.componentservices.nbpapi.NBPAPIExchangeRateFetcher;
 
 /**
  * Service aggregating business logic related to calculating net monthly

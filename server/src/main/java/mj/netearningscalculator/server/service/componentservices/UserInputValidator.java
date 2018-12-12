@@ -1,4 +1,4 @@
-package mj.netearningscalculator.server.service;
+package mj.netearningscalculator.server.service.componentservices;
 
 import java.math.BigDecimal;
 

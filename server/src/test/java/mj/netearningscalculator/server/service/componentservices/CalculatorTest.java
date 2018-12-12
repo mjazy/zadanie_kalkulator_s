@@ -1,4 +1,4 @@
-package mj.netearningscalculator.server.service;
+package mj.netearningscalculator.server.service.componentservices;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import mj.netearningscalculator.server.domain.CountryFinances;
 import mj.netearningscalculator.server.domain.SupportedCountries;
+import mj.netearningscalculator.server.service.componentservices.Calculator;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
