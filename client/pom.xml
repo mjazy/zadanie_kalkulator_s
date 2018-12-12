@@ -13,7 +13,7 @@
 	
 	<parent>
 		<groupId>mj.netearningscalculator</groupId>
-		<artifactId>client</artifactId>
+		<artifactId>netearningscalculator</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>    
 
