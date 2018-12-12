@@ -3,13 +3,15 @@ import { InputFormComponent } from './components/input-form/input-form.component
 import { FormsModule } from '@angular/forms';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { OutputDivComponent } from './components/output-div/output-div.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        InputFormComponent
+        InputFormComponent,
+        OutputDivComponent
       ],
       imports: [
         FormsModule,

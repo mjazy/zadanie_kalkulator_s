@@ -7,6 +7,6 @@
   </select>
   <p>Enter your daily gross earnings below:</p>
   <input [(ngModel)] = "grossDailyEarnings" name = "earnings" type="text"/><button disabled>{{countryCurrency}}</button><br>
-  <button (click)="getNetMonthlyEarnings()">Calculate net monthly earnings</button>
+  <button (click)="fetchNetMonthlyEarnings()">Calculate net monthly earnings</button>
 </div>
 </form>
