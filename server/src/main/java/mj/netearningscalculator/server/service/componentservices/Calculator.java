@@ -29,7 +29,7 @@ public class Calculator {
 	 */
 	public BigDecimal calculateNetMonthlyEarningsInPLN(BigDecimal grossDailyEarnings, BigDecimal exchangeRate,
 			CountryFinances countryFinances) {
-		BigDecimal grossMonthlyEarnings = grossDailyEarnings.multiply(new BigDecimal(MONTH_LENGTH));		
+		BigDecimal grossMonthlyEarnings = grossDailyEarnings.multiply(new BigDecimal(MONTH_LENGTH));
 		// If grossMonthlyEarnings < taxFreeAllowance.
 		if (grossMonthlyEarnings.compareTo(countryFinances.getTaxFreeAllowance()) < 0) {
 			return grossMonthlyEarnings.multiply(exchangeRate);

@@ -18,18 +18,17 @@ public class NBPAPIFetchExchangeRateResponseTest {
 
 		NBPAPIRate nbpAPIRate = new NBPAPIRate("233/C/NBP/2018", new Date(10000000), new BigDecimal("4.25"),
 				new BigDecimal("4.27"));
-		NBPAPIRate[] nbpAPIRates = new NBPAPIRate[]{nbpAPIRate};
+		NBPAPIRate[] nbpAPIRates = new NBPAPIRate[] { nbpAPIRate };
 
 		char table = 'a';
 		String currency = "Euro";
 		String code = "EUR";
 
-		nbpAPIFetchExchangeRateResponse = new NBPAPIFetchExchangeRateResponse(table, currency, code,
+		nbpAPIFetchExchangeRateResponse = new NBPAPIFetchExchangeRateResponse(table, currency, code, nbpAPIRates);
+		relevantToStringValue = String.format("table: '%s', currency: '%s', code: '%s', %s", table, currency, code,
 				nbpAPIRates);
-		relevantToStringValue = String.format("table: '%s', currency: '%s', code: '%s', %s", table, currency,
-				code, nbpAPIRates);
 	}
-	
+
 	@Test
 	public void toStringTest() {
 		assertEquals(nbpAPIFetchExchangeRateResponse.toString(), relevantToStringValue);

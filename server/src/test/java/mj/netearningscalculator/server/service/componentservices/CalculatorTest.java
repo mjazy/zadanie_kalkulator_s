@@ -27,8 +27,8 @@ public class CalculatorTest {
 	SupportedCountries supportedCountries;
 
 	CountryFinances germanyFinances, polandFinances, unitedKingdomFinances;
-	BigDecimal grossDailyEarnings, grossDailyEarningsHigherThanFreeTaxAllowance, eurPLNExchangeRate, gbpPLNExchangeRate, germanRelevantMonthlyNetEarnings,
-			polishRelevantMonthlyNetEarnings, britishRelevantMonthlyNetEarnings;
+	BigDecimal grossDailyEarnings, grossDailyEarningsHigherThanFreeTaxAllowance, eurPLNExchangeRate, gbpPLNExchangeRate,
+			germanRelevantMonthlyNetEarnings, polishRelevantMonthlyNetEarnings, britishRelevantMonthlyNetEarnings;
 
 	@Before
 	public void initializeVariables() {
@@ -43,7 +43,8 @@ public class CalculatorTest {
 
 		germanRelevantMonthlyNetEarnings = setNetMonthlyEarningsInPLN(grossDailyEarnings, germanyFinances)
 				.multiply(eurPLNExchangeRate);
-		polishRelevantMonthlyNetEarnings = setNetMonthlyEarningsInPLN(grossDailyEarningsHigherThanFreeTaxAllowance, polandFinances);
+		polishRelevantMonthlyNetEarnings = setNetMonthlyEarningsInPLN(grossDailyEarningsHigherThanFreeTaxAllowance,
+				polandFinances);
 		britishRelevantMonthlyNetEarnings = setNetMonthlyEarningsInPLN(grossDailyEarnings, unitedKingdomFinances)
 				.multiply(gbpPLNExchangeRate);
 
@@ -53,8 +54,8 @@ public class CalculatorTest {
 	public void calculateMonthlyNetEarningsInPLNTest() {
 		assertEquals(germanRelevantMonthlyNetEarnings,
 				calculator.calculateNetMonthlyEarningsInPLN(grossDailyEarnings, eurPLNExchangeRate, germanyFinances));
-		assertEquals(polishRelevantMonthlyNetEarnings,
-				calculator.calculateNetMonthlyEarningsInPLN(grossDailyEarningsHigherThanFreeTaxAllowance, new BigDecimal("1"), polandFinances));
+		assertEquals(polishRelevantMonthlyNetEarnings, calculator.calculateNetMonthlyEarningsInPLN(
+				grossDailyEarningsHigherThanFreeTaxAllowance, new BigDecimal("1"), polandFinances));
 		assertEquals(britishRelevantMonthlyNetEarnings, calculator.calculateNetMonthlyEarningsInPLN(grossDailyEarnings,
 				gbpPLNExchangeRate, unitedKingdomFinances));
 	}
@@ -66,11 +67,12 @@ public class CalculatorTest {
 		if (grossMonthlyEarnings.compareTo(countryFinances.getTaxFreeAllowance()) < 0) {
 			return grossMonthlyEarnings;
 		} else {
-			BigDecimal grossMonthlyEarningsWithoutFixedCosts = grossMonthlyEarnings.subtract(countryFinances.getFixedCosts());
+			BigDecimal grossMonthlyEarningsWithoutFixedCosts = grossMonthlyEarnings
+					.subtract(countryFinances.getFixedCosts());
 			return grossMonthlyEarningsWithoutFixedCosts
-			.subtract(grossMonthlyEarningsWithoutFixedCosts.multiply(countryFinances.getIncomeTax()));			
+					.subtract(grossMonthlyEarningsWithoutFixedCosts.multiply(countryFinances.getIncomeTax()));
 		}
-				
+
 	}
 
 }

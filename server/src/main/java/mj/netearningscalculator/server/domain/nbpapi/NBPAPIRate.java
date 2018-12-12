@@ -15,10 +15,13 @@ public class NBPAPIRate {
 
 	@JsonProperty
 	private String no;
+
 	@JsonProperty
 	private Date effectiveDate;
+
 	@JsonProperty
 	private BigDecimal bid;
+
 	@JsonProperty
 	private BigDecimal ask;
 
@@ -36,11 +39,11 @@ public class NBPAPIRate {
 		this.bid = bid;
 		this.ask = ask;
 	}
-	
+
 	/**
 	 * Constructor for NBPAPIRate class.
 	 */
-	public NBPAPIRate() {		
+	public NBPAPIRate() {
 	}
 
 	public String getNo() {

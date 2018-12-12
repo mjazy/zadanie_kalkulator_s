@@ -15,11 +15,11 @@ public class ComponentServicesConfiguration {
 	RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
-	
+
 	@Bean
 	@Scope("prototype")
 	Logger logger(InjectionPoint injectionPoint) {
 		return LoggerFactory.getLogger(injectionPoint.getMember().getDeclaringClass());
-}
-	
+	}
+
 }

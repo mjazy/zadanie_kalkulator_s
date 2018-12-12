@@ -21,8 +21,8 @@ public class NBPAPIRateTest {
 		BigDecimal testAsk = new BigDecimal("4.27");
 
 		nbpAPIRate = new NBPAPIRate(testNo, testDate, testBid, testAsk);
-		relevantToStringValue = String.format("no: '%s', effectiveDate: '%s', bid: '%s', ask: '%s'", testNo,
-				testDate, testBid, testAsk);
+		relevantToStringValue = String.format("no: '%s', effectiveDate: '%s', bid: '%s', ask: '%s'", testNo, testDate,
+				testBid, testAsk);
 	}
 
 	@Test

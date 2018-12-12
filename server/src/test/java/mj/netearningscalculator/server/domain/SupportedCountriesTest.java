@@ -28,7 +28,7 @@ public class SupportedCountriesTest {
 
 		assertTrue(supportedCountries.containsCountry("de"));
 		assertTrue(supportedCountries.containsCountry("Pl"));
-		assertTrue(supportedCountries.containsCountry("uK"));	
+		assertTrue(supportedCountries.containsCountry("uK"));
 
 		assertFalse(supportedCountries.containsCountry("FR"));
 		assertFalse(supportedCountries.containsCountry(null));
@@ -41,7 +41,7 @@ public class SupportedCountriesTest {
 		assertEquals("", supportedCountries.getCountryCurrency("FR"));
 
 	}
-	
+
 	@Test
 	public void getCountryByCodeTest() {
 		assertNotNull(supportedCountries.getCountryByCode("DE"));
@@ -49,7 +49,7 @@ public class SupportedCountriesTest {
 		assertNotNull(supportedCountries.getCountryByCode("uK"));
 		assertNull(supportedCountries.getCountryByCode("PLU"));
 	}
-	
+
 	@Test
 	public void toStringTest() {
 		String relevantToStringValue = String.format("supportedCountries: '%s'",

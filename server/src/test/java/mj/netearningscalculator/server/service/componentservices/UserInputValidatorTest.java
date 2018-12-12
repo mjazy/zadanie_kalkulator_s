@@ -20,18 +20,18 @@ public class UserInputValidatorTest {
 
 	@Inject
 	UserInputValidator userInputValidator;
-	
+
 	@Test
 	public void validateTest() {
 		assertFalse(userInputValidator.validate(null, new BigDecimal("20000")));
 		assertFalse(userInputValidator.validate("", new BigDecimal("20000")));
-		
+
 		assertFalse(userInputValidator.validate("PL", null));
 		assertFalse(userInputValidator.validate("PL", new BigDecimal("-20000")));
 		assertFalse(userInputValidator.validate("PL", new BigDecimal("0")));
-		
+
 		assertTrue(userInputValidator.validate("PL", new BigDecimal("100")));
 
 	}
-	
+
 }

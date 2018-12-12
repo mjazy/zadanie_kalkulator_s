@@ -20,7 +20,8 @@ public class CountryFinancesTest {
 		BigDecimal taxFreeAllowance = new BigDecimal("3000");
 		polandFinances = new CountryFinances(currency, incomeTax, fixedCosts, taxFreeAllowance);
 
-		relevantToStringValue = String.format("currency: '%s', incomeTax: '%s', fixedCosts: '%s', taxFreeAllowance: '%s'", currency, incomeTax,
+		relevantToStringValue = String.format(
+				"currency: '%s', incomeTax: '%s', fixedCosts: '%s', taxFreeAllowance: '%s'", currency, incomeTax,
 				fixedCosts, taxFreeAllowance);
 
 	}

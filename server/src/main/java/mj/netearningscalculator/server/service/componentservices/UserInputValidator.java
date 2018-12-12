@@ -21,7 +21,8 @@ public class UserInputValidator {
 	/**
 	 * Method validating user input.
 	 * 
-	 * @param countryCode should be compliant with ISO 3166-1 and of supported country.
+	 * @param countryCode        should be compliant with ISO 3166-1 and of
+	 *                           supported country.
 	 * @param grossDailyEarnings should be greater than 0.
 	 * @return true if input is valid, false if else.
 	 */

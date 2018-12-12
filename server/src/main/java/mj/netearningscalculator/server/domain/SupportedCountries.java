@@ -24,10 +24,12 @@ public class SupportedCountries {
 	public SupportedCountries() {
 		setSupportedCountriesList(new ArrayList<Country>());
 
-		CountryFinances germanyFinances = new CountryFinances("EUR", new BigDecimal("0.20"), new BigDecimal("800"), new BigDecimal("9000"));
+		CountryFinances germanyFinances = new CountryFinances("EUR", new BigDecimal("0.20"), new BigDecimal("800"),
+				new BigDecimal("9000"));
 		Country germany = new Country("Germany", "DE", germanyFinances);
 
-		CountryFinances polandFinances = new CountryFinances("PLN", new BigDecimal("0.19"), new BigDecimal("1200"), new BigDecimal("3000"));
+		CountryFinances polandFinances = new CountryFinances("PLN", new BigDecimal("0.19"), new BigDecimal("1200"),
+				new BigDecimal("3000"));
 		Country poland = new Country("Poland", "PL", polandFinances);
 
 		CountryFinances unitedKingdomFinances = new CountryFinances("GBP", new BigDecimal("0.25"),

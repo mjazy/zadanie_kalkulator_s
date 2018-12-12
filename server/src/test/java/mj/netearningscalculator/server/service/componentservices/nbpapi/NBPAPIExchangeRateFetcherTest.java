@@ -21,41 +21,40 @@ import mj.netearningscalculator.server.service.componentservices.nbpapi.NBPAPIEx
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class NBPAPIExchangeRateFetcherTest {
-	
+
 	@Inject
 	NBPAPIExchangeRateFetcher nbpAPIExchangeRateFetcher;
-	
+
 	BigDecimal successfulFetchExchangeRateValue, unsuccessfulFetchExchangeRateValue;
 	OutputCapture outputCapture;
-	
+
 	@Before
 	public void initializeVariables() {
 		successfulFetchExchangeRateValue = nbpAPIExchangeRateFetcher.fetchExchangeRate("EUR");
 		unsuccessfulFetchExchangeRateValue = nbpAPIExchangeRateFetcher.fetchExchangeRate("BY");
 		outputCapture = new OutputCapture();
 	}
-	
+
 	@Test
 	public void nonNullTest() {
 		assertNotNull(successfulFetchExchangeRateValue);
 		assertNotNull(unsuccessfulFetchExchangeRateValue);
 	}
-	
-	
+
 	@Test
 	public void successfulFetchExchangeRateTest() {
 		assertTrue(successfulFetchExchangeRateValue.compareTo(BigDecimal.ZERO) > 0);
 	}
-	
+
 	@Test
 	public void unsuccessfulFetchExchangeRateTest() {
 		assertEquals(new BigDecimal("-1"), unsuccessfulFetchExchangeRateValue);
 	}
-	
+
 	@Test
 	public void loggingTest() {
 		// Log should be added with unsuccesfulFetchRateValue run.
 		outputCapture.expect(containsString("404 NotFound"));
 	}
-	
+
 }
