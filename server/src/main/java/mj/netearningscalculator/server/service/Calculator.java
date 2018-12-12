@@ -29,9 +29,15 @@ public class Calculator {
 	 */
 	public BigDecimal calculateNetMonthlyEarningsInPLN(BigDecimal grossDailyEarnings, BigDecimal exchangeRate,
 			CountryFinances countryFinances) {
-		BigDecimal grossMonthlyEarnings = grossDailyEarnings.multiply(new BigDecimal(MONTH_LENGTH));
-		BigDecimal netMonthlyEarnings = calculateNetMonthlyEarnings(grossMonthlyEarnings, countryFinances);
-		return netMonthlyEarnings.multiply(exchangeRate);
+		BigDecimal grossMonthlyEarnings = grossDailyEarnings.multiply(new BigDecimal(MONTH_LENGTH));		
+		// If grossMonthlyEarnings < taxFreeAllowance.
+		if (grossMonthlyEarnings.compareTo(countryFinances.getTaxFreeAllowance()) < 0) {
+			return grossMonthlyEarnings.multiply(exchangeRate);
+		} else {
+			BigDecimal netMonthlyEarnings = calculateNetMonthlyEarnings(grossMonthlyEarnings, countryFinances);
+			return netMonthlyEarnings.multiply(exchangeRate);
+
+		}
 	}
 
 	private BigDecimal calculateNetMonthlyEarnings(BigDecimal grossMonthlyEarnings, CountryFinances countryFinances) {
